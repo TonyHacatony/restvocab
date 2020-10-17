@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @RestController
 public class WordController {
 
-    private Collection<Word> words = new ArrayList<>();
+    private final Collection<Word> words = new ArrayList<>();
     private final AtomicLong counter = new AtomicLong();
 
     @GetMapping
