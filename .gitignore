@@ -1,1 +1,8 @@
 /.idea/
+/.gradle/
+
+*.class
+*.war
+*.jar
+
+!gradle-wrapper.jar
