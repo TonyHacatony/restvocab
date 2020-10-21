@@ -17,7 +17,7 @@ public class WordService {
         return (Collection<Word>) repository.findAll();
     }
 
-    public void add(String name) {
-        repository.save(new Word(name));
+    public Word add(String name) {
+        return repository.save(new Word(name));
     }
 }

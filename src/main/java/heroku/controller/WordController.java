@@ -17,9 +17,6 @@ public class WordController {
     @Autowired
     private WordService wordService;
 
-    private final Collection<Word> words = new ArrayList<>();
-    private final AtomicLong counter = new AtomicLong();
-
     @GetMapping
     public Collection<Word> getAll() {
         return wordService.getAll();
@@ -27,9 +24,6 @@ public class WordController {
 
     @GetMapping("/add")
     public Word add(@RequestParam(value = "name", defaultValue = "empty") String name) {
-        Word word = new Word(counter.incrementAndGet(), name);
-        words.add(word);
-        wordService.add(name);
-        return word;
+        return wordService.add(name);
     }
 }
