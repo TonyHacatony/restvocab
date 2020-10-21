@@ -14,6 +14,13 @@ public class Word {
     private String name;
     private String translate;
 
+    public Word() {
+    }
+
+    public Word(String name) {
+        this.name = name;
+    }
+
     public Word(long id, String name, String translate) {
         this.id = id;
         this.name = name;

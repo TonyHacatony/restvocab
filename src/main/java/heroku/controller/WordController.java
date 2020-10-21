@@ -29,6 +29,7 @@ public class WordController {
     public Word add(@RequestParam(value = "name", defaultValue = "empty") String name) {
         Word word = new Word(counter.incrementAndGet(), name);
         words.add(word);
+        wordService.add(name);
         return word;
     }
 }

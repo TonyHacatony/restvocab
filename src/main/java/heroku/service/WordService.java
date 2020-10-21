@@ -13,7 +13,11 @@ public class WordService {
     @Autowired
     private WordRepository repository;
 
-    public Collection<Word> getAll(){
+    public Collection<Word> getAll() {
         return (Collection<Word>) repository.findAll();
+    }
+
+    public void add(String name) {
+        repository.save(new Word(name));
     }
 }
