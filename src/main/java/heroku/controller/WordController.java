@@ -3,9 +3,7 @@ package heroku.controller;
 import heroku.domain.Word;
 import heroku.service.WordService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,8 +20,18 @@ public class WordController {
         return wordService.getAll();
     }
 
-    @GetMapping("/add")
+    @PostMapping("/add")
     public Word add(@RequestParam(value = "name", defaultValue = "empty") String name) {
         return wordService.add(name);
+    }
+
+    @GetMapping("/find")
+    public Word findById(@RequestParam(value = "id") Long id) {
+        return wordService.findById(id).orElse(null);
+    }
+
+    @DeleteMapping("/remove")
+    public void remove(@RequestParam(value = "id") Long id) {
+        wordService.remove(id);
     }
 }
